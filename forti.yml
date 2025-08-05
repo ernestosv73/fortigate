@@ -3,10 +3,30 @@ name: fwforti
 topology:
   nodes:
 
+    ciscort:
+      kind: cisco_iol
+      image: docker.io/arthurk99/cisco-iol:17.15.01 
+      startup-config: config/core/config.partial
+              
+    srlswitch:
+      kind: nokia_srlinux
+      image: ghcr.io/nokia/srlinux:24.10.1
+      type: ixrd3
+      startup-config: switch/srlswitch.cfg
+    
     # Fortigate FW
     fw:
       kind: fortinet_fortigate
       image: vrnetlab/vr-fortios:6.0.3
       ports:
         - 8080:80
+    
+    PC1: 
+      kind: linux # "Alpine Linux v3.12"
+      image: ghcr.io/hellt/network-multitool    
       
+  links:
+    - endpoints: ["ciscort:Ethernet0/1","fw:eth1"]
+    - endpoints: ["ciscort:Ethernet0/2","srlswitch:e1-1"]    
+    - endpoints: ["PC1:eth1","srlswitch:e1-2"]
+      mtu: 1500
