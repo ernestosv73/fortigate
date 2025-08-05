@@ -8,5 +8,5 @@ topology:
       kind: fortinet_fortigate
       image: vrnetlab/vr-fortios:7.6.3
       ports:
-        - 80:80
+        - 8080:80
       
