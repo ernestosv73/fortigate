@@ -6,13 +6,13 @@ topology:
     ciscort:
       kind: cisco_iol
       image: docker.io/arthurk99/cisco-iol:17.15.01 
-      startup-config: config/core/config.partial
+      startup-config: configs/router/config.partial
               
     srlswitch:
       kind: nokia_srlinux
       image: ghcr.io/nokia/srlinux:24.10.1
       type: ixrd3
-      startup-config: switch/srlswitch.cfg
+      startup-config: configs/switch/srlswitch.cfg
     
     # Fortigate FW
     fw:
