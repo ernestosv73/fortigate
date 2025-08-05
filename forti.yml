@@ -1,0 +1,10 @@
+name: fwforti
+  
+topology:
+  nodes:
+
+    # Fortigate FW
+    fw:
+      kind: fortinet_fortigate
+      image: vrnetlab/vr-fortios:7.6.3
+      
