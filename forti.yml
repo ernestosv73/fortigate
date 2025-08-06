@@ -18,6 +18,7 @@ topology:
     fw:
       kind: fortinet_fortigate
       image: vrnetlab/vr-fortios:6.0.3
+      startup-config: configs/fortigate/startup-config.cfg
       ports:
         - 8080:80
     
