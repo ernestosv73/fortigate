@@ -18,7 +18,7 @@ topology:
     fw:
       kind: fortinet_fortigate
       image: vrnetlab/vr-fortios:6.0.3
-      startup-config: configs/fortigate/startup-config.cfg
+      startup-config: configs/fortigate/cfos-partial.conf
       ports:
         - 8080:80
     
