@@ -17,7 +17,7 @@ topology:
     # Fortigate FW
     fw:
       kind: fortinet_fortigate
-      image: vrnetlab/vr-fortios:7.0.13
+      image: vrnetlab/vr-fortios:6.0.3
       ports:
         - 8080:80
     
