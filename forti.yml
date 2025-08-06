@@ -19,6 +19,7 @@ topology:
       kind: fortinet_fortigate
       image: vrnetlab/vr-fortios:6.0.3
       cpu: 1
+      memory: 1Gb
       ports:
         - 80:80
         - 443:443
