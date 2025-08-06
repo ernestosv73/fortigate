@@ -19,8 +19,8 @@ topology:
       kind: fortinet_fortigate
       image: vrnetlab/vr-fortios:6.0.3
       ports:
-        - 8080:80
-        - 8443:443
+        - 80:80
+        - 443:443
     
     PC1: 
       kind: linux # "Alpine Linux v3.12"
