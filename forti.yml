@@ -18,8 +18,10 @@ topology:
     fw:
       kind: fortinet_fortigate
       image: vrnetlab/vr-fortios:6.0.3
-      cpu: 1
-      memory: 1Gb
+      env:
+        QEMU_SMP: 1
+        QEMU_CPU: 1
+        QEMU_MEMORY: 1024
       ports:
         - 80:80
         - 443:443
