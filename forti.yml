@@ -7,6 +7,16 @@ topology:
       kind: cisco_iol
       image: docker.io/arthurk99/cisco-iol:17.15.01 
       startup-config: configs/router/config.partial
+
+    cisco-wan1:
+      kind: cisco_iol
+      image: docker.io/arthurk99/cisco-iol:17.15.01 
+      #startup-config: configs/router/configw1.partial
+
+    cisco-wan2:
+      kind: cisco_iol
+      image: docker.io/arthurk99/cisco-iol:17.15.01 
+      #startup-config: configs/router/configw2.partial  
               
     srlswitch:
       kind: nokia_srlinux
@@ -36,6 +46,8 @@ topology:
        - bash /root/client.sh
       
   links:
+    - endpoints: ["cisco-wan1:Ethernet0/1","fw:eth2"]
+    - endpoints: ["cisco-wan2:Ethernet0/1","fw:eth3"]
     - endpoints: ["ciscort:Ethernet0/1","fw:eth1"]
     - endpoints: ["ciscort:Ethernet0/2","srlswitch:e1-1"]    
     - endpoints: ["PC1:eth1","srlswitch:e1-2"]
