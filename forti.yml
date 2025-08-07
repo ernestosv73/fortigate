@@ -11,7 +11,7 @@ topology:
     cisco-wan1:
       kind: cisco_iol
       image: docker.io/arthurk99/cisco-iol:17.15.01 
-      #startup-config: configs/router/configw1.partial
+      startup-config: configs/router-wan1/configw1.partial
 
     cisco-wan2:
       kind: cisco_iol
