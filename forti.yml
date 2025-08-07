@@ -16,7 +16,7 @@ topology:
     cisco-wan2:
       kind: cisco_iol
       image: docker.io/arthurk99/cisco-iol:17.15.01 
-      #startup-config: configs/router/configw2.partial  
+      startup-config: configs/router-wan2/configw2.partial  
               
     srlswitch:
       kind: nokia_srlinux
