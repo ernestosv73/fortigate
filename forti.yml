@@ -3,20 +3,15 @@ name: fwforti
 topology:
   nodes:
 
-    ciscort:
+    router-lan:
       kind: cisco_iol
       image: docker.io/arthurk99/cisco-iol:17.15.01 
       startup-config: configs/router/config.partial
 
-    cisco-wan1:
+    router-wan:
       kind: cisco_iol
       image: docker.io/arthurk99/cisco-iol:17.15.01 
       startup-config: configs/router-wan1/configw1.partial
-
-    cisco-wan2:
-      kind: cisco_iol
-      image: docker.io/arthurk99/cisco-iol:17.15.01 
-      startup-config: configs/router-wan2/configw2.partial  
               
     srlswitch:
       kind: nokia_srlinux
@@ -44,6 +39,20 @@ topology:
        - ip -6 route del default dev eth0
        - chmod +x /root/client.sh
        - bash /root/client.sh
+
+    PC2: 
+      kind: linux # "Alpine Linux v3.12"
+      image: ghcr.io/hellt/network-multitool
+      binds:
+       - configs/client.sh:/root/client.sh
+      exec:
+       - ip -6 route del default dev eth0
+       - chmod +x /root/client.sh
+       - bash /root/client.sh
+
+    PC3: 
+      kind: linux # "Alpine Linux v3.12"
+      image: ghcr.io/hellt/network-multitool
        
     srvweb-lan:
        kind: linux
@@ -57,11 +66,11 @@ topology:
         - ip -4 addr add 172.16.0.10/24 dev eth1
         - ip route default dev eth1    
   links:
-    - endpoints: ["cisco-wan1:Ethernet0/1","fw:eth2"]
-    - endpoints: ["cisco-wan2:Ethernet0/1","fw:eth3"]
-    - endpoints: ["ciscort:Ethernet0/1","fw:eth1"]
-    - endpoints: ["ciscort:Ethernet0/3","srvweb-lan:eth1"]
-    - endpoints: ["ciscort:Ethernet0/2","srlswitch:e1-1"]    
+    - endpoints: ["router-wan:Ethernet0/2","PC3:eth1"]
+    - endpoints: ["router-wan:Ethernet0/1","fw:eth2"]
+    - endpoints: ["srvweb-lan:eth1","fw:eth3"]
+    - endpoints: ["router-lan:Ethernet0/1","fw:eth1"]
+    - endpoints: ["router-lan:Ethernet0/2","srlswitch:e1-1"]    
     - endpoints: ["PC1:eth1","srlswitch:e1-2"]
       mtu: 1500
     - endpoints: ["PC2:eth1","srlswitch:e1-3"]
