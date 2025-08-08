@@ -20,3 +20,10 @@ Siga los siguientes pasos:
 * Generar el contenedor docker ejecutando make 
   
 # Ejecución de topología
+---
+Desde el directorio /workspaces/ipv6sec/ ejecutar clab deploy -t forti.yml 
+
+# Actualizar topología en Codespaces
+---
+Para actualizar en codespaces los cambios en la configuración de la topolgía del repositorio, ejecutar en la terminal 
+de codespaces `git pull origin main` 
