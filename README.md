@@ -12,16 +12,16 @@ Siga los siguientes pasos:
 * Descargar la imagen fortinet-6.0.3.qcow2 en su dispositivo laptop o PC desde .
 * Instalar VSCode e instalar las extensiones GitHub Codespaces y Dev Containers.
 * Desde el repositorio importado, crear un nuevo codespace.
-* Desde el directorio /workspaces ejecutar git clone https://github.com/hellt/vrnetlab.git para descargar los archivos requeridos para crear el docker de vr-fortios
+* Desde el directorio /workspaces ejecutar `git clone https://github.com/hellt/vrnetlab.git` para descargar los archivos requeridos para crear el docker de vr-fortios
 * Para copiar la imagen .qcow2 al repositorio remoto debemos iniciar sesión desde VSCode ejecutando Ctrl+Shift+P y escribir GitHub: Sign in. Seguir los pasos hasta completar el proceso.
 * Conectarse al codespace ejecutando Ctrl+Shift+P y escribir Connect to Codespace.
 * Para copiar la imagen .qcow2 del host local al repositorio remoto, ejecutamos Ctrl+Shift+P y escribir File: Open Folder...y no posicionamos en el directorio /workspaces/vrnetlab/fortigate/
 * Finalemente, arrastramos la imagen .qcow2 al arbol de directorio en vscode.
-* Generar el contenedor docker ejecutando make 
+* Generar el contenedor docker ejecutando `make` 
   
 # Ejecución de topología
 ---
-Desde el directorio /workspaces/ipv6sec/ ejecutar clab deploy -t forti.yml 
+Desde el directorio /workspaces/fortigate/ ejecutar `clab deploy -t forti.yml` 
 
 # Actualizar topología en Codespaces
 ---
