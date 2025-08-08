@@ -32,8 +32,8 @@ topology:
         QEMU_SMP: 1
         QEMU_MEMORY: 1024
       ports:
-        - 80:80
-        - 443:443
+        - 80:8080
+        - 443:4443
     
     PC1: 
       kind: linux # "Alpine Linux v3.12"
