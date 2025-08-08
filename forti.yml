@@ -27,7 +27,7 @@ topology:
     # Fortigate FW
     fw:
       kind: fortinet_fortigate
-      image: docker.io/esanchezv/vr-fortios:6.0.3
+      image: vrnetlab/vr-fortios:6.0.3
       env:
         QEMU_SMP: 1
         QEMU_MEMORY: 1024
