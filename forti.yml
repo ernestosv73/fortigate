@@ -44,11 +44,23 @@ topology:
        - ip -6 route del default dev eth0
        - chmod +x /root/client.sh
        - bash /root/client.sh
-      
+       
+    srvweb-lan:
+       kind: linux
+       image: docker.io/esanchezv/srvhttps:latest
+       binds:
+        #- config/serverweb.sh:/root/serverweb.sh
+        - configs/web-server.html:/var/www/localhost/htdocs/index.html
+       exec:
+       #- nginx
+       #- ip -6 route del default dev eth0
+        - ip -4 addr add 172.16.0.10/24 dev eth1
+        - ip -4 route add 0.0.0.0/0 via 172.30.0.2    
   links:
     - endpoints: ["cisco-wan1:Ethernet0/1","fw:eth2"]
     - endpoints: ["cisco-wan2:Ethernet0/1","fw:eth3"]
     - endpoints: ["ciscort:Ethernet0/1","fw:eth1"]
+    - endpoints: ["ciscort:Ethernet0/3","srvweb-lan:eth1"]
     - endpoints: ["ciscort:Ethernet0/2","srlswitch:e1-1"]    
     - endpoints: ["PC1:eth1","srlswitch:e1-2"]
       mtu: 1500
