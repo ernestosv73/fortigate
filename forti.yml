@@ -64,3 +64,5 @@ topology:
     - endpoints: ["ciscort:Ethernet0/2","srlswitch:e1-1"]    
     - endpoints: ["PC1:eth1","srlswitch:e1-2"]
       mtu: 1500
+    - endpoints: ["PC2:eth1","srlswitch:e1-3"]
+      mtu: 1500  
