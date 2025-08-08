@@ -1,5 +1,0 @@
-conf t
-interface ethernet 0/1
-ip address 10.20.0.1 255.255.255.0
-no shutdown
-exit
