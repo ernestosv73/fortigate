@@ -57,7 +57,7 @@ topology:
         - ip route del default dev eth0       
         - ip -6 route del default dev eth0
         - ip -4 addr add 10.20.0.10/24 dev eth1
-        - ip route default dev eth1    
+        - ip route add default dev eth1    
        
     srvweb-lan:
        kind: linux
@@ -69,7 +69,7 @@ topology:
         - ip route del default dev eth0       
         - ip -6 route del default dev eth0
         - ip -4 addr add 172.16.0.10/24 dev eth1
-        - ip route default dev eth1    
+        - ip route add default dev eth1    
   links:
     - endpoints: ["router-wan:Ethernet0/2","PC3:eth1"]
     - endpoints: ["router-wan:Ethernet0/1","fw:eth2"]
