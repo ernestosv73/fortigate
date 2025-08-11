@@ -12,4 +12,12 @@ network 192.168.0.0 255.255.255.0
 default-router 192.168.0.1
 exit
 ip route 0.0.0.0 0.0.0.0 172.30.0.2
+access-list 1 permit 192.168.0.0 0.0.0.255
+ip nat inside source list 1 interface ethernet 0/1 overload
+interface ethernet 0/2
+ip nat inside
 exit
+interface ethernet 0/1
+ip nat outside
+exit
+
