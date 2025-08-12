@@ -39,6 +39,7 @@ topology:
        - ip -6 route del default dev eth0
        - chmod +x /root/client.sh
        - bash /root/client.sh
+       - ip route del default dev eth0
 
     PC2: 
       kind: linux # "Alpine Linux v3.12"
@@ -49,6 +50,7 @@ topology:
        - ip -6 route del default dev eth0
        - chmod +x /root/client.sh
        - bash /root/client.sh
+       - ip route del default dev eth0
 
     PC3: 
       kind: linux # "Alpine Linux v3.12"
