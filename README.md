@@ -1,4 +1,4 @@
-<img width="438" height="88" alt="imagen" src="https://github.com/user-attachments/assets/d5eca1b4-6a17-4a32-a40f-d7baf568766f" /># Laboratorio práctica de Firewall con Containerlab
+# Laboratorio práctica de Firewall con Containerlab
 ---
 La topología creada tiene por objetivo poveer un entorno controlado para la configuración de un firewall.
 
