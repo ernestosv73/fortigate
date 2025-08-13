@@ -1,4 +1,4 @@
-# Laboratorio práctica de Firewall con Containerlab
+<img width="438" height="88" alt="imagen" src="https://github.com/user-attachments/assets/d5eca1b4-6a17-4a32-a40f-d7baf568766f" /># Laboratorio práctica de Firewall con Containerlab
 ---
 La topología creada tiene por objetivo poveer un entorno controlado para la configuración de un firewall.
 
@@ -9,21 +9,12 @@ La imagen utilizada del firewall Fortigate se provee como una VM basada en QEMU 
 Siga los siguientes pasos:
 
 * Crear una cuenta en Github e importar el repositorio https://github.com/ernestosv73/fortigate
-* Descargar la imagen fortinet-6.0.3.qcow2 en su dispositivo laptop o PC desde .
-* Instalar VSCode e instalar las extensiones GitHub Codespaces y Dev Containers.
-* Desde el repositorio importado, crear un nuevo codespace.
-* Desde el directorio /workspaces ejecutar `git clone https://github.com/hellt/vrnetlab.git` para descargar los archivos requeridos para crear el docker de vr-fortios
-* Para copiar la imagen .qcow2 al repositorio remoto debemos iniciar sesión desde VSCode ejecutando Ctrl+Shift+P y escribir GitHub: Sign in. Seguir los pasos hasta completar el proceso.
-* Conectarse al codespace ejecutando Ctrl+Shift+P y escribir Connect to Codespace.
-* Para copiar la imagen .qcow2 del host local al repositorio remoto, ejecutamos Ctrl+Shift+P y escribir File: Open Folder...y no posicionamos en el directorio /workspaces/vrnetlab/fortigate/
-* Finalemente, arrastramos la imagen .qcow2 al arbol de directorio en vscode.
+* Descargar la imagen fortios-v6.0.3.qcow2 en su dispositivo local.
+* Desde el servidor Linux, clonar vrnetlab ejecutando: git clone https://github.com/hellt/vrnetlab.git
+* Asignar permisos de escritura a la carpeta /home/usuario/vrnetlab/fortigate
+* Copiar el archivo descargado, (fortios-v6.0.3.qcow2) a la carpeta fortigate en el Servidor Linux
 * Generar el contenedor docker ejecutando `make` 
   
 # Ejecución de topología
 ---
-Desde el directorio /workspaces/fortigate/ ejecutar `clab deploy -t forti.yml` 
-
-# Actualizar topología en Codespaces
----
-Para actualizar en codespaces los cambios en la configuración de la topolgía del repositorio, ejecutar en la terminal 
-de codespaces `git pull origin main` 
+Desde el directorio /home/usuario/fortigate ejecutar `clab deploy -t forti.yml` 
